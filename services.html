@@ -98,7 +98,7 @@
             opacity: 1;
             transform: translateY(0);
         }
-        
+       
         .scrollbar-hide::-webkit-scrollbar {
             display: none;
         }
@@ -166,7 +166,7 @@
         #service-modal-content {
             transition: all 0.3s ease-in-out;
         }
-        
+       
         /* New Arrow Styles */
         .carousel-arrow {
             opacity: 0;
@@ -184,7 +184,7 @@
 </head>
 <body class="text-text-dark font-sans antialiased">
     <div id="root" class="flex flex-col min-h-screen">
-        
+       
         <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-40 border-b border-border-light-grey">
             <div class="max-w-screen-xl mx-auto px-6">
                 <div class="flex items-center justify-between h-20">
@@ -202,9 +202,25 @@
                     <button type="button" class="open-service-modal hidden md:inline-block premium-button py-3 px-6 rounded-xl text-base">
                         Book Service
                     </button>
+                    <button id="mobile-menu-button" type="button" class="md:hidden text-deep-blue p-2">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
                 </div>
             </div>
         </header>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-border-light-grey">
+            <div class="px-6 pt-2 pb-4 space-y-2">
+                <a href="index.html" class="block py-2 px-3 rounded-md font-medium text-text-neutral-grey hover:text-primary-blue hover:bg-light-bg">Home</a>
+                <a href="about.html" class="block py-2 px-3 rounded-md font-medium text-text-neutral-grey hover:text-primary-blue hover:bg-light-bg">About Us</a>
+                <a href="services.html" class="block py-2 px-3 rounded-md font-semibold text-primary-blue bg-blue-50">Service</a>
+                <a href="media.html" class="block py-2 px-3 rounded-md font-medium text-text-neutral-grey hover:text-primary-blue hover:bg-light-bg">Media</a>
+                <a href="contact.html" class="block py-2 px-3 rounded-md font-medium text-text-neutral-grey hover:text-primary-blue hover:bg-light-bg">Contact</a>
+                <button type="button" class="open-service-modal w-full mt-2 premium-button py-3 px-6 rounded-xl text-base">
+                    Book Service
+                </button>
+            </div>
+        </div>
 
         <main class="flex-grow">
 
@@ -219,7 +235,7 @@
 
             <section id="services" class="font-montserrat py-10 md:py-20 fade-in-section overflow-hidden">
                 <div class="w-full mx-auto space-y-20">
-                    
+                   
                     <div>
                         <div class="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 mb-8">
                             <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-deep-blue">Bicycle Sales</h2>
@@ -271,7 +287,7 @@
                             </button>
                         </div>
                     </div>
-                    
+                   
                     <div>
                         <div class="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 mb-8">
                             <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-deep-blue">Spare Parts</h2>
@@ -350,7 +366,7 @@
                             </button>
                         </div>
                     </div>
-                    
+                   
                     <div>
                         <div class="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 mb-8">
                             <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-deep-blue">Expert Repairs & Maintenance</h2>
@@ -378,7 +394,7 @@
                 </div>
             </section>
         </main>
-        
+       
         <footer id="contact" class="bg-footer-bg pt-20 pb-8 border-t border-border-light-grey">
             <div class="max-w-screen-xl mx-auto px-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center sm:text-left">
@@ -426,11 +442,10 @@
         </footer>
     </div>
 
-    <!-- Service Modal -->
     <div id="service-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-60 transition-opacity duration-300 ease-in-out opacity-0 pointer-events-none">
         <div id="service-modal-content" class="content-card relative rounded-2xl w-full max-w-sm sm:max-w-lg p-6 sm:p-8 transform transition-all duration-300 ease-in-out scale-95 opacity-0">
             <button class="close-modal-button absolute top-4 right-4 text-gray-400 hover:text-gray-800"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
-            
+           
             <div id="service-form-content">
                 <div class="text-center mb-6">
                     <h2 class="text-2xl sm:text-3xl font-bold text-deep-blue">Book Home Service</h2>
@@ -460,7 +475,6 @@
                         <option>Electric Kit Install</option>
                         <option>Others</option>
                     </select>
-                    <!-- New Hidden Fields -->
                     <input type="hidden" name="formType" value="Service">
                     <input type="hidden" name="WEBHOOK_SECRET" value="2c188d432f6f4c85b2d0eb97aa5e2b9be565cf40c7b8b1a4c47157ce9c2af5b3">
                     <input type="hidden" name="coordinates" value="">
@@ -468,7 +482,7 @@
                     <p class="text-xs text-text-neutral-grey text-center pt-1">We respect your privacy. Your data is used only to serve you better.</p>
                 </form>
             </div>
-            
+           
             <div id="service-success-message" class="hidden text-center py-8">
                 <svg class="w-24 h-24 mx-auto text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path class="tick-animation" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -479,7 +493,7 @@
 
         </div>
     </div>
-    
+   
     <a href="https://wa.me/918332993068?text=Hello!%20I%20have%20a%20question." 
        target="_blank" 
        rel="noopener noreferrer" 
@@ -489,10 +503,9 @@
         </svg>
     </a> 
 
-<!-- === UNIVERSAL SCRIPT BLOCK === -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // --- PASTE ORIGINAL PAGE-SPECIFIC LOGIC HERE ---
+    // --- NEW: MOBILE MENU LOGIC ---
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
     if (mobileMenuButton && mobileMenu) {
@@ -501,6 +514,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- NEW: MOBILE CAROUSEL ANIMATION LOGIC ---
+    if (window.innerWidth < 768) {
+        document.querySelectorAll('.carousel-track').forEach(track => {
+            // Duplicate items for a seamless marquee effect
+            const items = Array.from(track.children);
+            items.forEach(item => {
+                track.appendChild(item.cloneNode(true));
+            });
+            // Apply the animation class
+            track.classList.add('mobile-marquee');
+        });
+    }
+    
+    // --- ORIGINAL PAGE-SPECIFIC LOGIC ---
     const fadeInObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -573,7 +600,7 @@ document.addEventListener('DOMContentLoaded', () => {
             messageEl.textContent = '';
             messageEl.style.color = '';
         }
-        
+       
         try {
             const formData = new FormData(form);
             const response = await fetch(WEB_APP_URL, {
@@ -587,7 +614,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const parentCard = form.closest('.content-card');
                 const formContent = parentCard.querySelector('div[id$="-form-content"]');
                 const successMessage = parentCard.querySelector('div[id$="-success-message"]');
-                
+               
                 if (formContent && successMessage) { 
                     const successTextEl = successMessage.querySelector('[data-success-message-text]');
                     if (successTextEl) {
@@ -598,13 +625,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 form.reset();
                 setTimeout(() => { 
-                       if (parentCard && !parentCard.closest('div[id$="-modal-content"]')) {
-                           const parentSuccess = parentCard.querySelector('div[id$="-success-message"]');
-                           if (parentSuccess) parentSuccess.classList.add('hidden');
-                           formContent.classList.remove('hidden');
-                           submitButton.disabled = false;
-                           submitButton.innerHTML = originalButtonText;
-                       }
+                        if (parentCard && !parentCard.closest('div[id$="-modal-content"]')) {
+                            const parentSuccess = parentCard.querySelector('div[id$="-success-message"]');
+                            if (parentSuccess) parentSuccess.classList.add('hidden');
+                            formContent.classList.remove('hidden');
+                            submitButton.disabled = false;
+                            submitButton.innerHTML = originalButtonText;
+                        }
                 }, 10000);
 
             } else {
@@ -632,7 +659,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const openButtons = document.querySelectorAll(`.${openButtonsClass}`);
         const content = modal.querySelector('div[id$="-modal-content"]');
         const closeButtons = modal.querySelectorAll('.close-modal-button');
-        
+       
         const openModal = () => {
             modal.classList.remove('opacity-0', 'pointer-events-none');
             content.classList.remove('opacity-0', 'scale-95');
@@ -643,7 +670,7 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.classList.add('opacity-0');
             setTimeout(() => {
                 modal.classList.add('pointer-events-none');
-                
+               
                 const form = content.querySelector('form');
                 const formContent = content.querySelector('div[id$="-form-content"]');
                 const successMessage = content.querySelector('div[id$="-success-message"]');
@@ -667,14 +694,14 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.addEventListener('click', (e) => {
             if (e.target === modal) closeModal();
         });
-        
+       
         const form = content.querySelector('form');
         if (form) {
             const submitButton = form.querySelector('button[type="submit"]');
             if (submitButton) submitButton.dataset.originalText = submitButton.innerHTML;
         }
     }
-    
+   
     function setupGeolocation(buttonId, addressId, statusId) {
         const geoBtn = document.getElementById(buttonId);
         const addressField = document.getElementById(addressId);
@@ -725,7 +752,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize other modals if they exist on the page
     if (document.getElementById('exchange-modal')) initializeModal('exchange-modal', 'open-exchange-modal');
     if (document.getElementById('rental-modal')) initializeModal('rental-modal', 'open-rental-modal');
-    
+   
     // Setup geolocation for all relevant buttons on the page
     if (document.getElementById('service-getLocationBtn')) setupGeolocation('service-getLocationBtn', 'service-address', 'service-location-status');
     if (document.getElementById('homepage-getLocationBtn')) setupGeolocation('homepage-getLocationBtn', 'homepage-address', 'homepage-location-status');
@@ -733,4 +760,3 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
-
