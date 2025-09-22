@@ -192,6 +192,7 @@
                         <img src="blue deccan logo.png" alt="Deccan Cycle Mart Logo" class="h-10 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/100x40/064771/ffffff?text=Logo';">
                         <span class="text-xl font-bold text-deep-blue">Deccan Cycle Mart</span>
                     </a>
+                    <!-- Desktop Navigation -->
                     <nav class="hidden md:flex items-center space-x-8">
                         <a href="index.html" class="font-medium text-text-neutral-grey hover:text-primary-blue transition-colors">Home</a>
                         <a href="about.html" class="font-medium text-text-neutral-grey hover:text-primary-blue transition-colors">About Us</a>
@@ -202,25 +203,24 @@
                     <button type="button" class="open-service-modal hidden md:inline-block premium-button py-3 px-6 rounded-xl text-base">
                         Book Service
                     </button>
-                    <button id="mobile-menu-button" type="button" class="md:hidden text-deep-blue p-2">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                    </button>
+                    <!-- Mobile Menu Button -->
+                    <div class="md:hidden">
+                        <button id="mobile-menu-button" class="text-deep-blue focus:outline-none">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                        </button>
+                    </div>
                 </div>
             </div>
-        </header>
-
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-border-light-grey">
-            <div class="px-6 pt-2 pb-4 space-y-2">
-                <a href="index.html" class="block py-2 px-3 rounded-md font-medium text-text-neutral-grey hover:text-primary-blue hover:bg-light-bg">Home</a>
-                <a href="about.html" class="block py-2 px-3 rounded-md font-medium text-text-neutral-grey hover:text-primary-blue hover:bg-light-bg">About Us</a>
-                <a href="services.html" class="block py-2 px-3 rounded-md font-semibold text-primary-blue bg-blue-50">Service</a>
-                <a href="media.html" class="block py-2 px-3 rounded-md font-medium text-text-neutral-grey hover:text-primary-blue hover:bg-light-bg">Media</a>
-                <a href="contact.html" class="block py-2 px-3 rounded-md font-medium text-text-neutral-grey hover:text-primary-blue hover:bg-light-bg">Contact</a>
-                <button type="button" class="open-service-modal w-full mt-2 premium-button py-3 px-6 rounded-xl text-base">
-                    Book Service
-                </button>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 bg-white/95">
+                <a href="index.html" class="block py-2 text-lg text-text-neutral-grey transition-colors hover:text-primary-blue">Home</a>
+                <a href="about.html" class="block py-2 text-lg text-text-neutral-grey transition-colors hover:text-primary-blue">About Us</a>
+                <a href="services.html" class="block py-2 text-lg text-primary-blue font-semibold">Services</a>
+                <a href="media.html" class="block py-2 text-lg text-text-neutral-grey transition-colors hover:text-primary-blue">Media</a>
+                <a href="contact.html" class="block py-2 text-lg text-text-neutral-grey transition-colors hover:text-primary-blue">Contact Us</a>
+                <button type="button" class="open-service-modal block mt-4 w-full premium-button py-3 rounded-xl text-lg">Book Service</button>
             </div>
-        </div>
+        </header>
 
         <main class="flex-grow">
 
@@ -442,6 +442,7 @@
         </footer>
     </div>
 
+    <!-- Service Modal -->
     <div id="service-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-60 transition-opacity duration-300 ease-in-out opacity-0 pointer-events-none">
         <div id="service-modal-content" class="content-card relative rounded-2xl w-full max-w-sm sm:max-w-lg p-6 sm:p-8 transform transition-all duration-300 ease-in-out scale-95 opacity-0">
             <button class="close-modal-button absolute top-4 right-4 text-gray-400 hover:text-gray-800"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
@@ -475,6 +476,7 @@
                         <option>Electric Kit Install</option>
                         <option>Others</option>
                     </select>
+                    <!-- New Hidden Fields -->
                     <input type="hidden" name="formType" value="Service">
                     <input type="hidden" name="WEBHOOK_SECRET" value="2c188d432f6f4c85b2d0eb97aa5e2b9be565cf40c7b8b1a4c47157ce9c2af5b3">
                     <input type="hidden" name="coordinates" value="">
@@ -503,9 +505,10 @@
         </svg>
     </a> 
 
+<!-- === UNIVERSAL SCRIPT BLOCK === -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // --- NEW: MOBILE MENU LOGIC ---
+    // --- MOBILE MENU LOGIC ---
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
     if (mobileMenuButton && mobileMenu) {
@@ -514,7 +517,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- NEW: MOBILE CAROUSEL ANIMATION LOGIC ---
+    // --- MOBILE CAROUSEL ANIMATION LOGIC ---
     if (window.innerWidth < 768) {
         document.querySelectorAll('.carousel-track').forEach(track => {
             // Duplicate items for a seamless marquee effect
@@ -527,7 +530,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // --- ORIGINAL PAGE-SPECIFIC LOGIC ---
+    // --- FADE-IN OBSERVER ---
     const fadeInObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -538,6 +541,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in-section').forEach(target => fadeInObserver.observe(target));
 
+    // --- DESKTOP CAROUSEL LOGIC ---
     function setupCarousels() {
         document.querySelectorAll('.carousel-wrapper').forEach(wrapper => {
             const container = wrapper.querySelector('.carousel-container');
@@ -570,7 +574,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     setupCarousels();
 
-    // --- NEW UNIVERSAL FORM & MODAL LOGIC ---
+    // --- UNIVERSAL FORM & MODAL LOGIC ---
     const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxq6cU8aTR8Wq8YlDZ2ZK-GzJ4HQypJcYi3LTpOKBSBb_WDeBvLK3yawuP8KbHIZ7Xcqg/exec';
     const dcmForms = document.querySelectorAll('form[data-script="dcm-form"]');
 
